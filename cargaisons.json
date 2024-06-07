@@ -1,0 +1,195 @@
+{
+    "cargaisons": [
+        {
+            "idcargo": "6662d759eb024",
+            "codeUnique": "COnchs",
+            "type": "aerienne",
+            "distance": 33,
+            "datedebut": "2030-01-16",
+            "datefin": "2040-08-02",
+            "lieu_depart": "Praesentium aut quos",
+            "lieu_arrive": "Irure adipisci dolor",
+            "status": "fermer",
+            "etatAvancement": "en cours",
+            "produits": [
+                {
+                    "type": "Fragile",
+                    "code": "COnchs",
+                    "produit": {
+                        "libelle": "Enim quod aut et rat",
+                        "poids": null,
+                        "nomClient": "Ea quis distinctio ",
+                        "prenomClient": "Incidunt culpa ut n",
+                        "telephoneClient": "+1 (645) 647-7173",
+                        "adresseClient": "madazuv@mailinator.com",
+                        "nomDestinataire": "Delectus corrupti ",
+                        "prenomDestinataire": "Laborum numquam amet",
+                        "adresseDestinataire": "Doloremque doloremqu",
+                        "emaildestinataire": "seckrama098@gmail.com"
+                    }
+                },
+                {
+                    "type": "Fragile",
+                    "code": "COnchs",
+                    "produit": {
+                        "libelle": "Aliquip provident o",
+                        "poids": null,
+                        "nomClient": "Esse commodo cumque",
+                        "prenomClient": "Corrupti voluptate ",
+                        "telephoneClient": "+1 (506) 952-7393",
+                        "adresseClient": "vovyqu@mailinator.com",
+                        "nomDestinataire": "Quis non voluptatum ",
+                        "prenomDestinataire": "Voluptas facilis vol",
+                        "adresseDestinataire": "Delectus reiciendis",
+                        "emaildestinataire": "seckrama098@gmail.com"
+                    }
+                },
+                {
+                    "type": "Fragile",
+                    "code": "COnchs",
+                    "produit": {
+                        "libelle": "Aliquip provident o",
+                        "poids": null,
+                        "nomClient": "Esse commodo cumque",
+                        "prenomClient": "Corrupti voluptate ",
+                        "telephoneClient": "+1 (506) 952-7393",
+                        "adresseClient": "vovyqu@mailinator.com",
+                        "nomDestinataire": "Quis non voluptatum ",
+                        "prenomDestinataire": "Voluptas facilis vol",
+                        "adresseDestinataire": "Delectus reiciendis",
+                        "emaildestinataire": "seckrama098@gmail.com"
+                    }
+                },
+                {
+                    "type": "Alimentaire",
+                    "code": "COnchs",
+                    "produit": {
+                        "libelle": "In dolor sit et arc",
+                        "poids": null,
+                        "nomClient": "Ipsam dolores volupt",
+                        "prenomClient": "Similique qui sit il",
+                        "telephoneClient": "+1 (808) 192-3078",
+                        "adresseClient": "zuxil@mailinator.com",
+                        "nomDestinataire": "In corporis libero s",
+                        "prenomDestinataire": "Cumque et excepturi ",
+                        "adresseDestinataire": "Ipsum adipisicing no",
+                        "emaildestinataire": "seckrama098@gmail.com"
+                    }
+                },
+                {
+                    "type": "Chimique",
+                    "code": "COnchs",
+                    "produit": {
+                        "libelle": "Est voluptate fugit",
+                        "poids": null,
+                        "nomClient": "Consequat Totam tem",
+                        "prenomClient": "Sint error rerum er",
+                        "telephoneClient": "+1 (474) 966-5445",
+                        "adresseClient": "cimatipud@mailinator.com",
+                        "nomDestinataire": "Cum porro qui laudan",
+                        "prenomDestinataire": "Eius aliquid modi qu",
+                        "adresseDestinataire": "Possimus quos earum",
+                        "emaildestinataire": "seckrama098@gmail.com",
+                        "toxicite": 0
+                    }
+                }
+            ]
+        },
+        {
+            "idcargo": "6662d7833051d",
+            "codeUnique": "COge66",
+            "type": "routiere",
+            "distance": 79,
+            "datedebut": "2030-10-27",
+            "datefin": "2040-04-18",
+            "lieu_depart": "Cupiditate saepe id ",
+            "lieu_arrive": "Veniam ea voluptate",
+            "status": "fermer",
+            "etatAvancement": "arriv\u00e9",
+            "produits": [
+                {
+                    "type": "Alimentaire",
+                    "code": "COge66",
+                    "produit": {
+                        "libelle": "",
+                        "poids": null,
+                        "nomClient": "",
+                        "prenomClient": "",
+                        "telephoneClient": "",
+                        "adresseClient": "",
+                        "nomDestinataire": "",
+                        "prenomDestinataire": "",
+                        "adresseDestinataire": "",
+                        "emaildestinataire": ""
+                    }
+                }
+            ]
+        },
+        {
+            "idcargo": "6662d7dcb7a21",
+            "codeUnique": "COg8e1",
+            "type": "maritime",
+            "distance": 66,
+            "datedebut": "2030-02-24",
+            "datefin": "2040-04-10",
+            "lieu_depart": "Quo earum nihil mole",
+            "lieu_arrive": "Quo earum nihil mole",
+            "status": "fermer",
+            "etatAvancement": "arriv\u00e9",
+            "produits": []
+        },
+        {
+            "idcargo": "6662d87bed86f",
+            "codeUnique": "COu7g6",
+            "type": "routiere",
+            "distance": 92,
+            "datedebut": "2040-12-27",
+            "datefin": "2050-02-06",
+            "lieu_depart": "Occaecat harum facer",
+            "lieu_arrive": "Quis est excepturi ",
+            "status": "fermer",
+            "etatAvancement": "arriv\u00e9",
+            "produits": []
+        },
+        {
+            "idcargo": "6662d8a6477cd",
+            "codeUnique": "COs7ik",
+            "type": "maritime",
+            "distance": 60,
+            "datedebut": "2024-10-21",
+            "datefin": "2030-02-14",
+            "lieu_depart": "Possimus fugit occ",
+            "lieu_arrive": "Possimus fugit occ",
+            "status": "fermer",
+            "etatAvancement": "en attente",
+            "produits": []
+        },
+        {
+            "idcargo": "6662d8db00cd8",
+            "codeUnique": "CO6233",
+            "type": "routiere",
+            "distance": 95,
+            "datedebut": "2030-05-25",
+            "datefin": "2040-05-22",
+            "lieu_depart": "Id eu et voluptatib",
+            "lieu_arrive": "Repellendus Excepte",
+            "status": "fermer",
+            "etatAvancement": "en attente",
+            "produits": []
+        },
+        {
+            "idcargo": "6662d950beade",
+            "codeUnique": "COb3sk",
+            "type": "aerienne",
+            "distance": 71,
+            "datedebut": "2030-07-05",
+            "datefin": "2040-08-02",
+            "lieu_depart": "Recusandae Quisquam",
+            "lieu_arrive": "Hic earum dolorem ut",
+            "status": "fermer",
+            "etatAvancement": "en attente",
+            "produits": []
+        }
+    ],
+    "produits": []
+}
