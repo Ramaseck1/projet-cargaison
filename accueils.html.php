@@ -10,9 +10,9 @@
 <body>
     
 
-<div class="main bg-red-700 mt-20 ml-80 h-150 pb-80 bg-cover opacity-80 relative" id="main">
+<div class="main  mt-20 ml-80 h-150 pb-80 bg-cover opacity-80 relative" id="main">
      
-     <h1 class="text-4xl font-bold mb-4 fixed top-80 ml-10 text-white">Bienvenue chez GPduMonde</h1>
+     <h1 class="text-4xl font-bold mb-4 fixed top-80 ml-10 text-white">Bienvenue chez SEN GP-GARGO</h1>
      <h1 class=" text-3xl mb-8 fixed top-80 mt-20 ml-10 text-white ">Nous sommes une entreprise de transport de colis mondial.</h1>
      <button class="bg-blue-800 hover:bg-blue-600 text-white text-xl py-2 px-4 rounded fixed top-80 mt-40 ml-10" id="btncargaison">
          Accéder à la gestion des cargaisons 
@@ -22,6 +22,18 @@
 
 
  <script src="../dist/app-bundle.js"></script>
+ <script>
+     const images = ['../public/img/avions.jpg', '../public/img/bateau.jpg', '../public/img/avionss.jpg'];
+    let currentIndex = 0;
+    
+    function changeBackgroundImage() {
+        document.getElementById('main').style.backgroundImage = `url('${images[currentIndex]}')`;
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+    
+    setInterval(changeBackgroundImage, 1000);
+    
+ </script>
 
  </body>
 </html>

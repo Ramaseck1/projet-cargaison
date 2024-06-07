@@ -104,7 +104,6 @@ function addProduct(numero:any) {
 
 
 
-   
 
 
 function closeModals() {
@@ -300,11 +299,11 @@ function afficherCargaisons(data: Cargaison[]): void {
                 paginatedCargaisons.forEach(cargaison => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td>${cargaison.codeUnique}</td>
+                        <td >${cargaison.codeUnique}</td>
                         <td>${cargaison.type}</td>
                         <td>${cargaison.distance}</td>
                         <td>${cargaison.datedebut}</td>
-                        <td>${cargaison.datefin}</td>
+                        <td style="width:100vw">${cargaison.datefin}</td>
                         <td>${cargaison.lieu_depart}</td>
                         <td>${cargaison.lieu_arrive}</td>
                         <td>
@@ -319,8 +318,8 @@ function afficherCargaisons(data: Cargaison[]): void {
                         
                         </td>
                         <td style="display:flex !important">
-                        <button  style="border:none" class="text-blue-400 text-xl pr-3 font-bold rounded" onclick="showDetails('${cargaison.type}', ${cargaison.distance})">Détails</button>
-                        <button style="border:none" class="products text-blue-400 text-xl pr-3 font-bold rounded" onclick="addProduct('${cargaison.codeUnique}')" >Ajouter</button>
+                        <button  style="border:none" class="text-blue-400 text-xl pr-3 font-bold rounded " onclick="showDetails('${cargaison.type}', ${cargaison.distance})">Détails</button>
+                        <button style="border:none" class="products text-green-400 text-xl pr-3 font-bold rounded" onclick="addProduct('${cargaison.codeUnique}')" >Ajouter</button>
                         </td>
 
                     `;
@@ -613,59 +612,7 @@ const poid=document.getElementById('pd');
 
 
         //valider form produit
-        function validateForms(): boolean {
-            let isValid = true;
-            const errors = [];
-        
-            const fieldsToValidate = [
-                { id: 'libelle-produit', message: 'Le libellé du produit est requis.' },
-                { id: 'type-produit', message: 'Le type de produit est requis.' },
-                { id: 'poids-produit', message: 'Le poids du produit doit être un nombre positif.' },
-                { id: 'nom', message: 'Le nom du client doit contenir au moins 10 caractères.' },
-                { id: 'prenom', message: 'Le prénom du client doit contenir au moins 10 caractères.' },
-                { id: 'telephone', message: 'Le numéro de téléphone doit comporter 9 chiffres.' },
-                { id: 'adresse', message: 'L\'adresse doit contenir au moins 10 caractères.' },
-                { id: 'nomd', message: 'Le nom du destinataire doit contenir au moins 10 caractères.' },
-                { id: 'prenomd', message: 'Le prénom du destinataire doit contenir au moins 10 caractères.' },
-                { id: 'adressed', message: 'L\'adresse du destinataire doit contenir au moins 10 caractères.' },
-            ];
-        
-            fieldsToValidate.forEach(field => {
-                const value = (document.getElementById(field.id) as HTMLInputElement).value.trim();
-                if (value.length === 0 || (field.id === 'poids-produit' && (isNaN(parseFloat(value)) || parseFloat(value) <= 0))) {
-                    errors.push(field.message);
-                    isValid = false;
-                }
-            });
-        
-            const emailDestinataire = (document.getElementById('email') as HTMLInputElement).value.trim();
-            if (emailDestinataire.length > 0 && !isValidEmail(emailDestinataire)) {
-                errors.push('L\'email du destinataire est invalide.');
-                isValid = false;
-            }
-        
-            const errorContainer = document.getElementById('error-container');
-            errorContainer.innerHTML = '';
-            if (errors.length > 0) {
-                const errorList = document.createElement('ul');
-                errors.forEach(error => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = error;
-                    errorList.appendChild(listItem);
-                });
-                errorContainer.appendChild(errorList);
-            }
-        
-            return isValid;
-        }
-        
-        function isValidEmail(email: string): boolean {
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailPattern.test(email);
-        }
-        
-            
-        
+     
 
 
         function createNotificationproduit(message: string, type = 'success') {
@@ -683,7 +630,7 @@ const poid=document.getElementById('pd');
             }
         
             .notification {
-                background-color: #4caf50;
+                background-color: green;
                 color: white;
                 padding: 15px;
                 border-radius: 5px;
@@ -748,21 +695,98 @@ const poid=document.getElementById('pd');
         }
         
 
+
+
+
+
+
+
+
+
+        // Fonction de validation du formulaire
+function validateProductForm(): boolean {
+    const libelleProduit = (document.getElementById('libelle-produit') as HTMLInputElement).value;
+    const typeProduit = (document.getElementById('type-produit') as HTMLSelectElement).value;
+    const poidsProduit = parseFloat((document.getElementById('poids-produit') as HTMLInputElement).value);
+    const toxicite = (document.getElementById('toxicite') as HTMLInputElement)?.valueAsNumber || 0;
+    const nomclient = (document.getElementById('nom') as HTMLInputElement).value;
+    const prenomclient = (document.getElementById('prenom') as HTMLInputElement).value;
+    const telephone = (document.getElementById('telephone') as HTMLInputElement).value;
+    const adresse = (document.getElementById('adresse') as HTMLInputElement).value;
+    const nomdestinataire = (document.getElementById('nomd') as HTMLInputElement).value;
+    const prenomdestinataire= (document.getElementById('prenomd') as HTMLInputElement).value;
+    const addressedestinataire = (document.getElementById('adressed') as HTMLInputElement).value;
+    const emaildestinataire = (document.getElementById('email') as HTMLInputElement).value;
+
+
+    
+    // Vérifiez si les champs requis sont vides
+    if (!libelleProduit) {
+        alert('Veuillez remplir le champ Libellé Produit.');
+        return false;
+    }
+    if (!typeProduit) {
+        alert('Veuillez sélectionner un Type de Produit.');
+        return false;
+    }
+    if (isNaN(poidsProduit)) {
+        alert('Veuillez entrer un Poids valide.');
+        return false;
+    }
+    if (typeProduit === 'Chimique' && isNaN(toxicite)) {
+        alert('Veuillez entrer une Toxicité valide.');
+        return false;
+    }
+    if (!nomclient) {
+        alert('Veuillez remplir le champ Nom Client.');
+        return false;
+    }
+    if (!prenomclient) {
+        alert('Veuillez remplir le champ Prénom Client.');
+        return false;
+    }
+    if (!telephone) {
+        alert('Veuillez remplir le champ Téléphone.');
+        return false;
+    }
+    if (!adresse) {
+        alert('Veuillez remplir le champ Adresse.');
+        return false;
+    }
+    if (!nomdestinataire) {
+        alert('Veuillez remplir le champ Nom Destinataire.');
+        return false;
+    }
+    if (!prenomdestinataire) {
+        alert('Veuillez remplir le champ Prénom Destinataire.');
+        return false;
+    }
+    if (!addressedestinataire) {
+        alert('Veuillez remplir le champ Adresse Destinataire.');
+        return false;
+    }
+    if (!emaildestinataire) {
+        alert('Veuillez remplir le champ Email Destinataire.');
+        return false;
+    }
+
+    return true;
+}
+
+// Modifiez votre gestionnaire d'événements pour appeler la fonction de validation avant d'envoyer le formulaire
+
+
  //formulaire cargaison
  const productform = document.getElementById('btn-envoyer') as HTMLButtonElement;
-
- productform.addEventListener('click', (event) => {
-     event.preventDefault();
+ productform.addEventListener('click', async (event) => {
+    event.preventDefault();
     
-         handleProductFormSubmit(event);
+    // Validation du formulaire
+    if (validateProductForm()) {
+        await handleProductFormSubmit(event);
+    }
+});
 
-        
-    
-
-
-     
-   
- });
  async function handleProductFormSubmit(event: Event): Promise<boolean> {
     event.preventDefault();
 

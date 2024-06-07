@@ -19,23 +19,16 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />  
      <link rel="stylesheet" href="../dist/output.css">
     <style>
-        .sidebar {
-            transform: translateX(1%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .sidebar.show {
-            transform: translateX(-100%);
-        }  
-        #map {
-            height: 400px;
-            width: 100%;
-        } 
+       
         table {
     border-collapse: collapse;
+    border: 1px solid blue;
+
 }
 
 td, th {
-    border: 1px solid blue;
+    border-top: 1px solid blue;
+
     padding: 2px;
 }
 
@@ -146,32 +139,32 @@ button {
         
     </div>
 </dialog>
-    <div class="text-3xl mt-10  ml-40 w-7 " id="results">
+    <div class="text-3xl mt-10  ml-10 w-7 " id="results">
             <form action="">
             <div class="flex gap-10 mt-40 flex-wrap" style="margin-left:-1100px">
-    <input type="text" placeholder="code" class="w-40" id="code">
-    <input type="text" placeholder="datedebut" class="w-40 " id="date-debut">
-    <input type="text" placeholder="datefin" class="w-40  " id="date-fin">
-    <br>
-    <input type="text" placeholder="lieudepart" class="w-40 " id="lieu-depart">
-    <input type="text" placeholder="lieuarrive" class="w-40 " id="lieu-arrive">
-    <button type="submit" id="filter-button">envoi</button>
+    <input type="text" placeholder="code" class="w-40 border border-black-500" id="code">
+    <input type="date" placeholder="datedebut" class="w-40 border border-black-500 " id="date-debut">
+    <input type="date" placeholder="datefin" class="w-40 border border-black-500 " id="date-fin">
+    
+    <input type="text" placeholder="lieudepart" class="w-40  border border-black-500" id="lieu-depart">
+    <input type="text" placeholder="lieuarrive" class="w-40  border border-black-500" id="lieu-arrive">
+    <button type="submit" id="filter-button" class="bg-blue-700 text-xl border rounded-2xl text-white">filtrer</button>
 </div>
 
 
     </form> <br>
 
 
-    <table class="w-full-Xxl text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" style="margin-left:-1100px">
+    <table class="w-full-Xxl text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  border-collapse" style="margin-left:-1100px">
     <thead class="text-xl text-white uppercase bg-blue-200 bg-blue-500 text-white-400">
     <tr>
-        <th class="px-6 py-3">code</th>
-        <th class="px-6 py-3">Type</th>
-        <th class="px-6 py-3">Distance (km)</th>
-        <th class="px-6 py-3" >Date debut</th>
-        <th class="px-6 py-3" >Date fin</th>
-        <th class="px-6 py-3" >lieu depart</th>
-        <th class="px-6 py-3" >lieu arriver</th>
+        <th class="px-6 py-3 border border-blue-500 px-2">code</th>
+        <th class="px-6 py-3 border border-blue-500 px-2">Type</th>
+        <th class="px-6 py-3 border border-blue-500 px-2">Distance (km)</th>
+        <th class="px-6 py-3 border border-blue-500 px-2">Date debut</th>
+        <th class="px-6 py-3 border border-blue-500 px-2">Date  fin</th>
+        <th class="px-6 py-3 border border-blue-500 px-2" >lieu depart</th>
+        <th class="px-6 py-3 border border-blue-500 px-2" >lieu arriver</th>
        <!--  <th class="px-6 py-3" id="nb">Nb produit</th>
         <th class="px-6 py-3" id="pd">Poids</th> -->
 <!--         <th class="w-1/4 py-3 px-10 uppercase font-semibold text-sm">Montant Total (F)</th>
@@ -261,7 +254,6 @@ button {
      <div class="mb-5">
        <label for="libelle-produit" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Nom du produit</label>
        <input type="text" id="libelle-produit" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
-       <span id="libelle-produit-error" style="display: none; color: red;"></span>
       </div>
      <div class="mb-5">
      <select id="type-produit">
@@ -282,12 +274,10 @@ button {
      <div class="mb-5">
        <label for="toxicite-produit" class="block mb-2 text-sm font-medium ">Toxicity</label>
        <input type="text" id="toxicite" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
-       <span id="libelle-produit-error" style="display: none; color: red;"></span>
       </div>
      <div class="mb-5">
        <label for="poids-produit" class="block mb-2 text-sm font-medium ">Poids</label>
        <input type="text" id="poids-produit" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
-       <span id="libelle-produit-error" style="display: none; color: red;"></span>
       </div>
      <div class="mb-5">
        <label for="prix" class="block mb-2 text-sm font-medium ">Prix</label>
@@ -303,22 +293,18 @@ button {
    <div class="mb-5">
        <label for="nom" class="block mb-2 text-sm font-medium "> Nom du produit</label>
        <input type="text" id="nom" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
-       <span id="libelle-produit-error" style="display: none; color: red;"></span>
      </div>
      <div class="mb-5">
        <label for="prenom" class="block mb-2 text-sm font-medium "> prenom du client</label>
        <input type="text" id="prenom" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"   />
-       <span id="libelle-produit-error" style="display: none; color: red;"></span>
       </div>
      <div class="mb-5">
        <label for="telephone" class="block mb-2 text-sm font-medium "> Numero telephone</label>
        <input type="text" id="telephone" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"   />
-       <span id="libelle-produit-error" style="display: none; color: red;"></span>
       </div>
      <div class="mb-5"> 
        <label for="adresse" class="block mb-2 text-sm font-medium "> Adresse</label>
        <input type="text" id="adresse" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
-       <span id="libelle-produit-error" style="display: none; color: red;"></span>
       </div>
    </div>
      
@@ -337,12 +323,11 @@ button {
      <div class="mb-5">
        <label for="adresse" class="block mb-2 text-sm font-medium "> Adresse</label>
        <input type="text" id="adressed" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"/>
-       <span id="libelle-produit-error" style="display: none; color: red;"></span>
       </div>
       <div class="mb-5">
        <label for="adresse" class="block mb-2 text-sm font-medium "> Email</label>
        <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"/>
-       <span id="libelle-produit-error" style="display: none; color: red;"></span>
+       <span id="error" class="text-red-700" ></span>
       </div>
      </div>
      </div>

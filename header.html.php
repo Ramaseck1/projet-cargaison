@@ -24,7 +24,7 @@
 <body class="bg-gray-100 h-screen ">
     <div class="content flex">
         <div id="sidebar" class="sidebar fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-4 translate-x-[1%] transition-transform duration-300 ease-in-out">
-            <img src="../public/img/logoff.png" alt="">
+            <img src="../public/img/ll.png" alt="">
             <ul>
                 <li class="mt-20"><a href="index.php?page=accueil" class="text-blue-500 text-2xl hover:bg-blue-400 hover:text-white border border-blue-500 pr-20 pb-3 pt-3 pl-10 rounded-2xl" id="accueil">Accueil</a></li>
                 <li class="mt-20"><a href="index.php?page=cargaison" class="text-blue-500 text-2xl hover:bg-blue-400 hover:text-white border border-blue-500 pr-20 pb-3 pt-3 pl-5 rounded-2xl" id="cargaison">cargaison</a></li>
@@ -37,7 +37,7 @@
                     &#9776;
                 </button>
             </div>
-            <p class="text-blue-700 text-3xl font-bold">GP-MONDE</p>
+            <p class="text-blue-700 text-3xl font-bold">SEN GP-GARGO</p>
             <input type="date" name="" id="" class="-mr-10 bg-blue-100 border-b rounded-2xl">
         </div>
     </div>
