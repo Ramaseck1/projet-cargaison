@@ -1,4 +1,5 @@
 abstract class Produit {
+    public Typeproduit: string;
     public libelle: string;
     public poids: number;
     public nomClient: string;
@@ -9,11 +10,16 @@ abstract class Produit {
     public prenomDestinataire: string;
     public adresseDestinataire: string;
     public emaildestinataire: string;
+    public codeUnique: string;
 
 
-    constructor(libelle: string, poids: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string, emaildestinataire: string) {
+
+
+    constructor(Typeproduit: string,libelle: string, poids: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string, emaildestinataire: string) {
         this.libelle = libelle;
+        this.Typeproduit = Typeproduit;
         this.poids = poids;
+        this.codeUnique = Produit.generateUniqueCode(); // Générer un code unique lors de la création
         this.nomClient = nomClient;
         this.prenomClient = prenomClient;
         this.telephoneClient = telephoneClient;
@@ -42,13 +48,20 @@ abstract class Produit {
     }
 
     public abstract info(): string;
+
+    public static generateUniqueCode(): string {
+        const randomCode = Math.random().toString(36).substr(2, 4); // Générer une chaîne aléatoire de longueur 7
+        return "P" + randomCode;    }
+    
 }
 
+
+
 class Alimentaire extends Produit {
-    constructor(libelle: string, poids: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string,emaildestinataire: string
+    constructor(Typeproduit: string,libelle: string, poids: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string,emaildestinataire: string
 
     ) {
-        super(libelle, poids, nomClient, prenomClient, telephoneClient, adresseClient, nomDestinataire, prenomDestinataire, adresseDestinataire,emaildestinataire);
+        super(Typeproduit,libelle, poids, nomClient, prenomClient, telephoneClient, adresseClient, nomDestinataire, prenomDestinataire, adresseDestinataire,emaildestinataire);
     }
 
     public info(): string {
@@ -56,11 +69,13 @@ class Alimentaire extends Produit {
     }
 }
 
+
+
 class Chimique extends Produit {
     public toxicite: number;
 
-    constructor(libelle: string, poids: number, toxicite: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string,emaildestinataire: string) {
-        super(libelle, poids, nomClient, prenomClient, telephoneClient, adresseClient, nomDestinataire, prenomDestinataire, adresseDestinataire,emaildestinataire);
+    constructor(Typeproduit: string,libelle: string, poids: number, toxicite: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string,emaildestinataire: string) {
+        super(Typeproduit,libelle, poids, nomClient, prenomClient, telephoneClient, adresseClient, nomDestinataire, prenomDestinataire, adresseDestinataire,emaildestinataire);
         this.toxicite = toxicite;
     }
 
@@ -78,16 +93,16 @@ class Chimique extends Produit {
 }
 
 abstract class Materiel extends Produit {
-    constructor(libelle: string, poids: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string,emaildestinataire: string) {
-        super(libelle, poids, nomClient, prenomClient, telephoneClient, adresseClient, nomDestinataire, prenomDestinataire, adresseDestinataire,emaildestinataire);
+    constructor(Typeproduit: string,libelle: string, poids: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string,emaildestinataire: string) {
+        super(Typeproduit,libelle, poids, nomClient, prenomClient, telephoneClient, adresseClient, nomDestinataire, prenomDestinataire, adresseDestinataire,emaildestinataire);
     }
 
     public abstract info(): string;
 }
 
 class Fragile extends Materiel {
-    constructor(libelle: string, poids: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string,emaildestinataire: string) {
-        super(libelle, poids, nomClient, prenomClient, telephoneClient, adresseClient, nomDestinataire, prenomDestinataire, adresseDestinataire,emaildestinataire);
+    constructor(Typeproduit: string,libelle: string, poids: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string,emaildestinataire: string) {
+        super(Typeproduit,libelle, poids, nomClient, prenomClient, telephoneClient, adresseClient, nomDestinataire, prenomDestinataire, adresseDestinataire,emaildestinataire);
     }
 
     public info(): string {
@@ -96,8 +111,8 @@ class Fragile extends Materiel {
 }
 
 class Incassable extends Materiel {
-    constructor(libelle: string, poids: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string,emaildestinataire: string) {
-        super(libelle, poids, nomClient, prenomClient, telephoneClient, adresseClient, nomDestinataire, prenomDestinataire, adresseDestinataire,emaildestinataire);
+    constructor(Typeproduit: string,libelle: string, poids: number, nomClient: string, prenomClient: string, telephoneClient: string, adresseClient: string, nomDestinataire: string, prenomDestinataire: string, adresseDestinataire: string,emaildestinataire: string) {
+        super(Typeproduit,libelle, poids, nomClient, prenomClient, telephoneClient, adresseClient, nomDestinataire, prenomDestinataire, adresseDestinataire,emaildestinataire);
     }
 
     public info(): string {

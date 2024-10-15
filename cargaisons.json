@@ -1,94 +1,44 @@
 {
     "cargaisons": [
         {
-            "idcargo": "6662f9399aa0f",
-            "codeUnique": "COrnh2",
-            "type": "maritime",
-            "distance": 63,
-            "datedebut": "2222-03-26",
-            "datefin": "2232-02-13",
-            "lieu_depart": "Voluptatem ",
-            "lieu_arrive": "Voluptatem  ",
-            "status": "fermer",
-            "etatAvancement": "en cours",
-            "produits": [
-                {
-                    "type": "Fragile",
-                    "code": "COrnh2",
-                    "produit": {
-                        "libelle": "Et nisi et dolore do",
-                        "poids": null,
-                        "nomClient": "Voluptas dolorem dol",
-                        "prenomClient": "Pariatur Dolores al",
-                        "telephoneClient": "+1 (262) 624-5707",
-                        "adresseClient": "difoz@mailinator.com",
-                        "nomDestinataire": "Dolore aliqua Cupid",
-                        "prenomDestinataire": "Ipsum dicta reprehe",
-                        "adresseDestinataire": "Consequatur Minima ",
-                        "emaildestinataire": "fisaxiti@mailinator.com"
-                    }
-                },
-                {
-                    "type": "Fragile",
-                    "code": "COrnh2",
-                    "produit": {
-                        "libelle": "Voluptatem et omnis",
-                        "poids": null,
-                        "nomClient": "Laboriosam et dolor",
-                        "prenomClient": "",
-                        "telephoneClient": "",
-                        "adresseClient": "dujyde@mailinator.com",
-                        "nomDestinataire": "Beatae facere porro ",
-                        "prenomDestinataire": "Architecto dicta occ",
-                        "adresseDestinataire": "",
-                        "emaildestinataire": "seckrama099@gmail.com"
-                    }
-                }
-            ]
-        },
-        {
-            "idcargo": "6662f9c00e015",
-            "codeUnique": "COne7l",
+            "idcargo": "666aebed9a0e9",
+            "codeUnique": "CO5otf",
             "type": "aerienne",
-            "distance": 98,
-            "datedebut": "2222-04-13",
-            "datefin": "2232-12-01",
-            "lieu_depart": " et ",
-            "lieu_arrive": " odit deb",
+            "distance": null,
+            "datedebut": "2024-06-15",
+            "datefin": "2024-06-20",
+            "lieu_depart": "",
+            "lieu_arrive": "",
             "status": "fermer",
-            "etatAvancement": "arriv\u00e9",
+            "etatAvancement": "en attente",
             "produits": [
                 {
-                    "type": "Fragile",
-                    "code": "COne7l",
-                    "produit": {
-                        "libelle": "Et nisi et dolore do",
-                        "poids": null,
-                        "nomClient": "Voluptas dolorem dol",
-                        "prenomClient": "Pariatur Dolores al",
-                        "telephoneClient": "+1 (262) 624-5707",
-                        "adresseClient": "difoz@mailinator.com",
-                        "nomDestinataire": "Dolore aliqua Cupid",
-                        "prenomDestinataire": "Ipsum dicta reprehe",
-                        "adresseDestinataire": "Consequatur Minima ",
-                        "emaildestinataire": "seckrama099@gmail.com"
-                    }
+                    "libelle": "Laborum Ea dolorum ",
+                    "Typeproduit": "Alimentaire",
+                    "poids": null,
+                    "codeUnique": "Pyg39",
+                    "nomClient": "",
+                    "prenomClient": "",
+                    "telephoneClient": "",
+                    "adresseClient": "",
+                    "nomDestinataire": "",
+                    "prenomDestinataire": "",
+                    "adresseDestinataire": "",
+                    "emaildestinataire": ""
                 },
                 {
-                    "type": "Incassable",
-                    "code": "COne7l",
-                    "produit": {
-                        "libelle": "Ea doloribus ut ad a",
-                        "poids": null,
-                        "nomClient": "Aut eiusmod explicab",
-                        "prenomClient": "Qui sapiente iure te",
-                        "telephoneClient": "+1 (964) 141-8075",
-                        "adresseClient": "dixado@mailinator.com",
-                        "nomDestinataire": "Neque quam dolore om",
-                        "prenomDestinataire": "Aliquam voluptatem m",
-                        "adresseDestinataire": "Error tempore qui r",
-                        "emaildestinataire": "seckrama099@gmail.com"
-                    }
+                    "libelle": "Laborum Ea dolorum ",
+                    "Typeproduit": "Alimentaire",
+                    "poids": null,
+                    "codeUnique": "Pxsah",
+                    "nomClient": "rr",
+                    "prenomClient": "AZZ",
+                    "telephoneClient": "Aa",
+                    "adresseClient": "AZ",
+                    "nomDestinataire": "ZZZ",
+                    "prenomDestinataire": "ZZ",
+                    "adresseDestinataire": "12",
+                    "emaildestinataire": "seckrama098@gmail.com"
                 }
             ]
         }

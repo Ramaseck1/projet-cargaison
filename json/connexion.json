@@ -1,0 +1,17 @@
+{
+    "utilisateurs": [  
+
+      {
+        "type": "admin",
+        "email": "seckrama098@gmail.com",
+        "mot_de_passe": "passodc",
+        "nom": "kouna seck",
+        "genre":"F",
+        "role": "Administrateur"
+      }
+
+   
+    ]
+  }
+
+  

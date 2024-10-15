@@ -131,35 +131,33 @@ button {
          
             <input type="submit" id="submit-cargaison" class="bg-blue-500 mt-10 hover:bg-gray-300 text-black font-semibold py-2 px-4 border border-gray-400 rounded">
          
-         
-
+        
         </form>
-
-       
         
     </div>
 </dialog>
     <div class="text-3xl mt-10  ml-10 w-7 " id="results">
             <form action="">
             <div class="flex gap-10 mt-40 flex-wrap" style="margin-left:-1100px">
-    <input type="text" placeholder="code" class="w-40 border border-black-500" id="code">
-    <input type="date" placeholder="datedebut" class="w-40 border border-black-500 " id="date-debut">
-    <input type="date" placeholder="datefin" class="w-40 border border-black-500 " id="date-fin">
+    <input type="text" placeholder="code" class="w-40 border border-black-500 rounded-2xl" id="code">
+    <input type="date" placeholder="datedebut" class="w-40 border border-black-500 text-gray-400 text-sm rounded-2xl" id="date-debut">
+<input type="date" placeholder="datefin" class="w-40 border border-black-500 text-gray-400 text-sm rounded-2xl" id="date-fin">
+
     
-    <input type="text" placeholder="lieudepart" class="w-40  border border-black-500" id="lieu-depart">
-    <input type="text" placeholder="lieuarrive" class="w-40  border border-black-500" id="lieu-arrive">
-    <button type="submit" id="filter-button" class="bg-blue-700 text-xl border rounded-2xl text-white">filtrer</button>
+    <input type="text" placeholder="lieudepart" class="w-40  border border-black-500 rounded-2xl" id="lieu-depart">
+    <input type="text" placeholder="lieuarrive" class="w-40  border border-black-500 rounded-2xl" id="lieu-arrive">
+    <button type="submit" id="filter-button" class="bg-blue-700 text-xl border rounded-2xl text-white ">search</button>
 </div>
 
 
     </form> <br>
 
 
-    <table class="w-full-Xxl text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  border-collapse" style="margin-left:-1100px">
+    <table class="min-w-full  border border-blue-500" style="margin-left:-1100px">
     <thead class="text-xl text-white uppercase bg-blue-200 bg-blue-500 text-white-400">
-    <tr>
+    <tr class="text-white ">
         <th class="px-6 py-3 border border-blue-500 px-2">code</th>
-        <th class="px-6 py-3 border border-blue-500 px-2">Type</th>
+        <th  class="px-6 py-3 border border-blue-500 px-2">Type</th>
         <th class="px-6 py-3 border border-blue-500 px-2">Distance (km)</th>
         <th class="px-6 py-3 border border-blue-500 px-2">Date debut</th>
         <th class="px-6 py-3 border border-blue-500 px-2">Date  fin</th>
@@ -168,16 +166,14 @@ button {
        <!--  <th class="px-6 py-3" id="nb">Nb produit</th>
         <th class="px-6 py-3" id="pd">Poids</th> -->
 <!--         <th class="w-1/4 py-3 px-10 uppercase font-semibold text-sm">Montant Total (F)</th>
- -->       <th class="px-6 py-3">Etat Global</th>
+ -->   <th class="px-6 py-3">Etat Global</th>
        <th class="px-6 py-3" id="status">Etat provisoire</th>
-
-        <th class="px-6 py-3">Actions</th>
+       <th class="px-6 py-3">Actions</th>
     </tr>
 </thead>
-<tbody class="text-black text-xl" id="tbodycargaison">
-    <tr>
+<tbody class="text-black text-xl text-center" id="tbodycargaison">
         <!-- Les lignes ajoutées dynamiquement auront des cellules avec les classes nb-cell et pd-cell -->
-    </tr>
+    
 </tbody>
     </table>
     
@@ -194,18 +190,12 @@ button {
       </form>
     </div>
   </div>
-</dialog>
-
-
-
-    
+</dialog>    
 </div>
 <div class="pagination flex justify-center mt-4">
     <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 h-10 rounded-l" id="prevPage">&lt;</button>
     <span class="px-4 py-2">Page <span id="currentPage">1</span></span>
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r" id="nextPage">&gt;</button>
-
-
 </div>
 
 
@@ -277,7 +267,7 @@ button {
       </div>
      <div class="mb-5">
        <label for="poids-produit" class="block mb-2 text-sm font-medium ">Poids</label>
-       <input type="text" id="poids-produit" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+       <input type="number" id="poids-produit" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
       </div>
      <div class="mb-5">
        <label for="prix" class="block mb-2 text-sm font-medium ">Prix</label>

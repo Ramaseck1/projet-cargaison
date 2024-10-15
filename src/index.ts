@@ -9,24 +9,27 @@ let produits: Produit[] = [];
     produitsAjoutes.push(produit);
 }
  */
+
+
 async function showDetails(type: string, distance: number) {
     console.log("Type recherché:", type);
     console.log("Distance recherchée:", distance);
 
     const cargaison = cargaisons.find(c => c.type === type && c.distance === distance);
     console.log("Cargaison trouvée:", cargaison);
-
     if (cargaison) {
-        // Charger les données des produits associés à la cargaison
+        // Charger les données des   polpmroduits associés à la cargaison
+        let produits = [];
         try {
             const response = await fetch('http://www.rama.seck:9000/projetcargaison/save.php', {
                 method: 'GET'
             });
             const data = await response.json();
-            const produits = data.produits; // Récupérer les produits associés à la cargaison
+            const produits :any = data.produits; // Récupérer les produits associés à la cargaison
         } catch (error) {
             console.error('Erreur lors du chargement des données des produits:', error);
         }
+    
 
         let details = `
             <p>Type: ${cargaison.type}</p>
@@ -36,11 +39,21 @@ async function showDetails(type: string, distance: number) {
             <p>Date de début: ${cargaison.datedebut}</p>
             <p>Date de fin: ${cargaison.datefin}</p>
             <p>Produits:</p>
-            <table style="width: 50vw;">           
+            <table style="width: 50vw ;">           
                 <tr>
                     <th>Type de produit</th>
                     <th>Libellé</th>
                     <th>Poids</th>
+                    <th>nomClient</th> 
+                    <th>prenomClient</th>
+                    <th>telephoneClient</th>
+                    <th>adresseClient</th>
+                    <th>nomDestinataire</th>
+                    <th>prenomDestinataire</th>
+                    <th>adresseDestinataire</th>
+                    <th>emaildestinataire</th>
+                    <th>code</th>
+            
                 </tr>
         `;
 
@@ -48,9 +61,20 @@ async function showDetails(type: string, distance: number) {
         cargaison.produits.forEach(produit => {
             details += `
                 <tr>
-                    <td>${produit.constructor.name}</td>
+                    <td>${produit.Typeproduit}</td>
                     <td>${produit.libelle}</td>
                     <td>${produit.poids}</td>
+                    <td>${produit.nomClient}</td>
+                    <td>${produit.prenomClient}</td>
+                    <td>${produit.telephoneClient}</td>
+                    <td>${produit.adresseClient}</td>
+                    <td>${produit.nomDestinataire}</td>
+                    <td>${produit.prenomDestinataire}</td>
+                    <td>${produit.adresseDestinataire}</td>
+                    <td>${produit.emaildestinataire}</td>
+                    <td>${produit.codeUnique}</td>
+
+                    
                 </tr>
             `;
         });
@@ -84,9 +108,22 @@ function closeModal() {
 }
 
 
-let code:any
-function addProduct(numero:any) {
-  
+let code:string
+
+ 
+function addProduct(numero: string) {
+    // Rechercher la cargaison correspondant au numéro donné
+    const cargaison = cargaisons.find(c => c.codeUnique === numero);
+
+    // Vérifier si la cargaison existe
+    if (cargaison) {
+        // Vérifier le nombre de produits dans la cargaison
+        if (cargaison.produits.length >= 10) {
+            alert("La cargaison est pleine (plus de 10 produits) !");
+            return;
+        }
+
+        // Afficher le formulaire d'ajout de produit si la cargaison n'est pas pleine
         const detailsContainer = document.getElementById('ajouter-container');
         if (detailsContainer) {
             const modal = document.getElementById('ajouter-product') as HTMLDialogElement;
@@ -94,13 +131,16 @@ function addProduct(numero:any) {
                 modal.classList.remove('hidden');
                 modal.showModal(); // Afficher le modal
             }
-      
         }
-       console.log(numero);
 
-       code=numero
-       
+        console.log(numero);
+        code = numero;
+    } else {
+        // Gérer le cas où la cargaison n'est pas trouvée (facultatif)
+        alert("Cargaison non trouvée.");
     }
+}
+
 
 
 
@@ -113,6 +153,7 @@ function closeModals() {
     }
 }
 (window as any).addProduct = addProduct;
+
 
 
 function validateForm(): boolean {
@@ -252,7 +293,7 @@ async function updateStatus(codeUnique: string) {
             }
         } else {
             console.error('Erreur lors de la requête:', response.statusText);
-        }
+        }              
     } catch (error) {
         console.error('Erreur lors de l\'envoi:', error);
     }
@@ -298,6 +339,8 @@ function afficherCargaisons(data: Cargaison[]): void {
 
                 paginatedCargaisons.forEach(cargaison => {
                     const row = document.createElement('tr');
+
+                   
                     row.innerHTML = `
                         <td >${cargaison.codeUnique}</td>
                         <td>${cargaison.type}</td>
@@ -782,9 +825,9 @@ function validateProductForm(): boolean {
     event.preventDefault();
     
     // Validation du formulaire
-    if (validateProductForm()) {
+
         await handleProductFormSubmit(event);
-    }
+    
 });
 
  async function handleProductFormSubmit(event: Event): Promise<boolean> {
@@ -793,7 +836,7 @@ function validateProductForm(): boolean {
     // Récupération des valeurs des champs du formulaire
     const libelleProduit = (document.getElementById('libelle-produit') as HTMLInputElement).value;
     const typeProduit = (document.getElementById('type-produit') as HTMLSelectElement).value;
-    const poidsProduit = parseFloat((document.getElementById('poids-produit') as HTMLInputElement).value);
+ const poidsProduit:number = parseFloat((document.getElementById('poids-produit') as HTMLInputElement).value);
     const toxicite = (document.getElementById('toxicite') as HTMLInputElement)?.valueAsNumber || 0;
     const nomclient = (document.getElementById('nom') as HTMLInputElement).value;
     const prenomclient = (document.getElementById('prenom') as HTMLInputElement).value;
@@ -804,22 +847,23 @@ function validateProductForm(): boolean {
     const addressedestinataire = (document.getElementById('adressed') as HTMLInputElement).value;
     const emaildestinataire = (document.getElementById('email') as HTMLInputElement).value;
 
+console.log("jjj",poidsProduit);
 
     // Création de l'objet produit en fonction du type sélectionné
     let produit: Produit;
 
     switch (typeProduit) {
         case 'Alimentaire':
-            produit = new Alimentaire(libelleProduit, poidsProduit, nomclient, prenomclient, telephone, adresse, nomdestinataire, prenomdestinataire, addressedestinataire,emaildestinataire);
+            produit = new Alimentaire(typeProduit,libelleProduit, poidsProduit, nomclient, prenomclient, telephone, adresse, nomdestinataire, prenomdestinataire, addressedestinataire,emaildestinataire);
             break;
         case 'Chimique':
-            produit = new Chimique(libelleProduit, poidsProduit, toxicite, nomclient, prenomclient, telephone, adresse, nomdestinataire, prenomdestinataire, addressedestinataire,emaildestinataire);
+            produit = new Chimique(typeProduit,libelleProduit, poidsProduit, toxicite, nomclient, prenomclient, telephone, adresse, nomdestinataire, prenomdestinataire, addressedestinataire,emaildestinataire);
             break;
         case 'Fragile':
-            produit = new Fragile(libelleProduit, poidsProduit, nomclient, prenomclient, telephone, adresse, nomdestinataire, prenomdestinataire, addressedestinataire,emaildestinataire);
+            produit = new Fragile(typeProduit,libelleProduit, poidsProduit, nomclient, prenomclient, telephone, adresse, nomdestinataire, prenomdestinataire, addressedestinataire,emaildestinataire);
             break;
         case 'Incassable':
-            produit = new Incassable(libelleProduit, poidsProduit, nomclient, prenomclient, telephone, adresse, nomdestinataire, prenomdestinataire, addressedestinataire,emaildestinataire);
+            produit = new Incassable(typeProduit,libelleProduit, poidsProduit, nomclient, prenomclient, telephone, adresse, nomdestinataire, prenomdestinataire, addressedestinataire,emaildestinataire);
             break;
         default:
             console.error('Type de produit non reconnu');
@@ -831,6 +875,9 @@ function validateProductForm(): boolean {
         type: typeProduit,
         code: code,
         product: produit,
+        codeUniques:produit.codeUnique,
+
+        
 
     };
 
@@ -909,6 +956,7 @@ nbProduitsContainer.style.display="none"
 
 
 
+
     //choix cargaison pleine
     document.getElementById('cargoplein')?.addEventListener('change', function (this: HTMLInputElement) {
         const poidsContainer = document.getElementById('poids-produit') as HTMLElement | null;
@@ -955,83 +1003,6 @@ nbProduitsContainer.style.display="none"
             pdCells.forEach(cell => cell.style.display = 'none');
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     
@@ -1115,6 +1086,7 @@ nbProduitsContainer.style.display="none"
         mod.style.display = "none";
         form.reset();
     });
+
 
 
 

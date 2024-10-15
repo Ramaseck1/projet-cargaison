@@ -22,16 +22,12 @@ abstract class Cargaison {
         this.poidscargo = poidscargo;
         this.nomreproduit = nomreproduit;
         this.codeUnique = Cargaison.generateUniqueCode(); // Générer un code unique lors de la création
-
         this.lieu_depart = lieu_depart;
         this.lieu_arrive = lieu_arrive;
         this.status = 'fermer'; // Initialiser le statut à 'fermer'
-        this.etatAvancement = 'en_attente'; // Initialiser l'état d'avancement à 'en_attente' par défaut
-
-       
+        this.etatAvancement = 'en_attente'; // Initialiser l'état d'avancement à 'en_attente' par défaut   
         
     }
-   
     public ajouterProduit(produit: Produit): void {
         if (this.produits.length >= 10) {
             this.produits = [];

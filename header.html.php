@@ -5,12 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 <!--     api google maps (openRouteservice)
  -->   
-
+ <script>
+      function handleSelectChange(event) {
+            if (event.target.value === "deconnecter") {
+                window.location.href = "index.php?page=connexion";
+            }
+        }
+</script>
  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
     <link rel="stylesheet" href="../dist/output.css">
-    <style>
+   <!--  <style>
         .sidebar {
             transform: translateX(1%);
             transition: transform 0.3s ease-in-out;
@@ -18,7 +25,7 @@
         .sidebar.show {
             transform: translateX(-100%);
         }               
-    </style>
+    </style> -->
     
 </head>
 <body class="bg-gray-100 h-screen ">
@@ -39,6 +46,10 @@
             </div>
             <p class="text-blue-700 text-3xl font-bold">SEN GP-GARGO</p>
             <input type="date" name="" id="" class="-mr-10 bg-blue-100 border-b rounded-2xl">
+            <select name="" id="userSelect" onchange="handleSelectChange(event)" class=" p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <option value=""> 	&#x1F47C;  Rama Seck</option>
+            <option value="deconnecter">Se déconnecter</option>
+        </select>
         </div>
     </div>
 

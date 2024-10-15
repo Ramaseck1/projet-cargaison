@@ -1,36 +1,42 @@
 <?php
 
-
-include "../header.html.php";
-
-
-
 if (isset($_GET['page'])) {
-    // Recupere la valeur du parametre 'page'
+    // Récupère la valeur du paramètre 'page'
     $page = $_GET['page'];
+    if ($page !== 'connexion') {
+        require_once "../header.html.php";
+    }
 
     switch ($page) {
         case 'cargaison':
             include "../cargaison.html.php";
+            if ($page !== 'connexion') {
+                include "../footer.html.php";
+            }
             break;    
         case 'produit':
-            require_once "../produit.html.php";
+            include "../produit.html.php";
+            if ($page !== 'connexion') {
+                include "../footer.html.php";
+            }
             break;  
-            case 'accueil':
-                require_once "../accueils.html.php";
-                break;   
+        case 'accueil':
+            include "../accueils.html.php";
+            if ($page !== 'connexion') {
+                include "../footer.html.php";
+            }
+            break;
+        case 'connexion':
+            include "../connexion.html.php";
+            break;   
         default:
             // Optionally, include a 404 or error page
             echo "Page not found.";
             break;
     }
 } else {
-    // Si aucun parametre 'page' n'est defini, afficher la page d'accueil
-    include "../accueils.html.php";
+    // If 'page' n'existe pas, include connexion comme page par défaut
+    include "../connexion.html.php";
 }
-
-include "../footer.html.php";
-
-
 
 ?>
